@@ -8,3 +8,11 @@ before_install:
 
 script:
   - docker run -e CI=true lobhas/docker-react npm run test
+
+deploy:
+  provider: digitalocean
+  region: "lon-1"
+  app: "docker-react"
+  env: "Docker-env"
+  on:
+    branch: master
